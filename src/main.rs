@@ -5,6 +5,9 @@ use hyper::{Request, Response, body::Bytes, server::conn::http1, service::servic
 use hyper_util::rt::TokioIo;
 use tokio::net::TcpListener;
 
+mod prompts;
+mod protocol;
+
 async fn hello(_: Request<hyper::body::Incoming>) -> Result<Response<Full<Bytes>>, Infallible> {
     Ok(Response::new(Full::new(Bytes::from("Hello, World!"))))
 }
